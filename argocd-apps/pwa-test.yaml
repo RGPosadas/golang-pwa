@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pwa-test
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RGPosadas/golang-pwa.git
+    targetRevision: HEAD
+    path: pwa-test
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pwa-test
